@@ -36,4 +36,17 @@ public class FakeRepo implements FakeRepoInterface {
 
     @Override
     public String deleteUser(long id) {
-        for (int i = 0; i < cou
+        for (int i = 0; i < count; i++) {
+            if (users[i].getId() == id) {
+                String deletedName = users[i].getName();
+                // Shift remaining users left
+                for (int j = i; j < count - 1; j++) {
+                    users[j] = users[j + 1];
+                }
+                users[--count] = null;
+                return deletedName;
+            }
+        }
+        return null;
+    }
+}
