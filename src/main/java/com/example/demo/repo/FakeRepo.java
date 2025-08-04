@@ -1,7 +1,11 @@
 package com.example.demo.repo;
 
+import org.springframework.stereotype.Repository;
+
 import com.example.demo.model.User;
 
+
+@Repository
 public class FakeRepo implements FakeRepoInterface {
 
     private User[] users;
